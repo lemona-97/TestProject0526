@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import Alamofire
 
 protocol NewsViewBussinussLogic {
     func requestCatImages()
@@ -21,23 +20,11 @@ class NewsViewModel: NewsViewBussinussLogic {
     
     
     func requestCatImages() {
-        Task {
-            AF.request("https://newsapi.org/v2/top-headlines?country=us&apiKey=e9b514c39c5f456db8ed4ecb693b0040", encoding: JSONEncoding.default)
-                .validate(statusCode: 200...299)
-                .publishDecodable(type: NewsModel.self)
-                .receive(on: DispatchQueue.main)
-                .eraseToAnyPublisher
-                
             
-            
-//                .flatMap { NewsModel(from: $0)}
-//                .publisher
-//                .subscribe(NewsDataSubscriber())
-        }
     }
     
     func presentCatImages(news: NewsModel) {
-        <#code#>
+        
     }
     
     
